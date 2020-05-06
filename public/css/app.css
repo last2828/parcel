@@ -1,0 +1,87 @@
+.auth {
+  background: #3e4c69;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth form img {
+  margin-bottom: 75px;
+  width: 200px;
+}
+
+.auth form input {
+  width: 365px;
+  height: 60px;
+  border-radius: 3px;
+  border: solid 1px #ffffff;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding-left: 17px;
+  box-sizing: border-box;
+}
+
+.auth form input::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.auth form input::-moz-placeholder {
+  color: #ffffff;
+}
+
+.auth form input:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.auth form input::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.auth form input::placeholder {
+  color: #ffffff;
+}
+
+.auth .password-reset {
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.auth .btn {
+  font-size: 18px;
+  text-align: center;
+  color: #3e4c69;
+  width: 365px;
+  height: 50px;
+  border: none;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.auth .btn-primary {
+  background-color: #ffffff;
+}
+
+.auth .btn-secondary {
+  background-color: transparent;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
