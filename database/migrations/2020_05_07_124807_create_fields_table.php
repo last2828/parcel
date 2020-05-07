@@ -16,7 +16,6 @@ class CreateFieldsTable extends Migration
         Schema::create('fields', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('full_name');
             $table->string('type');
             $table->boolean('required');
             $table->integer('group_id');
