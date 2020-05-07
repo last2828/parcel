@@ -21,8 +21,9 @@ class FormValidator extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($id)
     {
+        dd($id);
         if($request['step'] === '1')
         return [
             true
