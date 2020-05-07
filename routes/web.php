@@ -43,4 +43,6 @@ Route::get('/step/{id}', 'FormController@create')->name('step');
 
 Auth::routes(['verify' => true]);
 
+Route::post('send', 'FormController@store')->name('')
+
 Route::get('/home', 'HomeController@index')->name('home');
