@@ -321,7 +321,7 @@ class FieldSeeder extends Seeder
             [
                 'id' => 41,
                 'name' => 'Datum *',
-                'type' => 'data',
+                'type' => 'date',
                 'required' => true,
                 'group_id' => 12
             ],
