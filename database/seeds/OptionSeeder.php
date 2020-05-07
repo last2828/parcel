@@ -11,6 +11,10 @@ class OptionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $options = [
+          'id' => 1,
+          'name' => '',
+          'field_id' => ,
+        ];
     }
 }

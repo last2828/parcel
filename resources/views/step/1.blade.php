@@ -34,7 +34,7 @@
 
         @include('step.components.input', ['title' => 'E-Mail *', 'required' => true, 'name' => 'email', 'type' => 'email'])
 
-        @include('step.components.input', ['title' => 'Website', 'required' => true, 'name' => 'website', 'type' => 'text'])
+        @include('step.components.input', ['title' => 'Website', 'required' => false, 'name' => 'website', 'type' => 'text'])
       </div>
       
 

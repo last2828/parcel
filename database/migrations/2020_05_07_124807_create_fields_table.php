@@ -19,6 +19,7 @@ class CreateFieldsTable extends Migration
             $table->string('full_name');
             $table->string('type');
             $table->boolean('required');
+            $table->integer('group_id');
             $table->timestamps();
         });
     }
