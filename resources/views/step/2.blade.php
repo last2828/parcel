@@ -4,7 +4,7 @@
 <form action="">
   <div class="step">
     <div class="container">
-      @include('step.steps')
+      @include('step.steps', ['current' => 2])
     
       <h2>Versandgut</h2>
       <div class="group">
@@ -19,6 +19,7 @@
         @include('step.input', ['title' => 'Land *', 'required' => true, 'name' => 'land', 'type' => 'text'])
 
         @include('step.input', ['title' => 'Geschäftsführer *', 'required' => true, 'name' => 'ges', 'type' => 'text'])
+        
         @include('step.input', ['title' => 'Ust.-ID Nr. *', 'required' => true, 'name' => 'id', 'type' => 'text'])
         
         
