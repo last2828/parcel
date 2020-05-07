@@ -1,0 +1,119 @@
+.auth
+  background: $blue
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  .logo
+    display: flex
+    justify-content: center
+    margin-bottom: 75px
+    img
+      width: 200px
+  .badge
+    background: $white
+    width: 365px
+    padding: 8px 0
+    font-size: 16px
+    line-height: 1.56
+    color: $blue
+    display: flex
+    justify-content: center
+    margin-bottom: 10px
+    border-radius: 3px
+  form
+    display: flex
+    flex-direction: column
+    align-items: center
+    input
+      width: 365px
+      height: 60px
+      border-radius: 3px
+      border: solid 1px $white
+      background: transparent
+      display: flex
+      justify-content: center
+      align-items: center
+      color: $white
+      margin-bottom: 10px
+      padding-left: 17px
+      box-sizing: border-box
+      &::placeholder
+        color: $white
+  .mb-50
+    margin-bottom: 50px
+
+
+
+
+
+
+  .password-reset
+    font-size: 16px
+    color: $white
+    text-decoration: none
+    width: 100%
+    display: block
+    text-align: left
+    margin-bottom: 60px
+
+
+
+
+
+  .btn
+    font-size: 18px
+    text-align: center
+    color: $blue
+    width: 365px
+    height: 50px
+    border: none
+    margin-bottom: 10px
+    box-sizing: border-box
+    border-radius: 3px
+    cursor: pointer
+    transition: background 0.3s
+    text-decoration: none
+    display: flex
+    justify-content: center
+    align-items: center
+    &-primary
+      background-color: $white
+      &:hover
+        background-color: transparent
+        color: $white
+        border: 2px solid $white
+    &-secondary
+      background-color: transparent
+      color: $white
+      border: 2px solid $white
+      &:hover
+        background-color: $white
+        color: $blue
+        border: 2px solid $white
+  
+
+.verified .flex
+  display: flex
+  flex-direction: column
+  img
+    width: 200px
+    display: flex
+    margin: 0 auto
+    margin-bottom: 75px
+  h3
+    font-size: 18px
+    font-weight: 500
+    line-height: 1.33
+    text-align: center
+    color: $white
+    margin-bottom: 25px
+  p
+    font-size: 16px
+    font-weight: 300
+    line-height: 1.56
+    text-align: left
+    color: $white
+    margin-bottom: 30px
+

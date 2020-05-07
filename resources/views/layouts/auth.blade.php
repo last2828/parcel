@@ -23,6 +23,9 @@
 </head>
 <body>
   <div class="auth">
+    <div class="logo">
+      <img src="{{asset('img/logo.png')}}" alt="">
+    </div>
     @yield('content')
   </div>
 </body>
