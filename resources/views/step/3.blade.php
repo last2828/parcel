@@ -6,9 +6,9 @@
     <div class="container">
       @include('step.steps', ['current' => 3])
     
-      <h2>Versandgut</h2>
+      <h2>Produktauswahl und Abrechnung</h2>
       <div class="group">
-        <h3>Details zur Ware</h3>
+        <h3>Details zur Produktauswahl und Abrechnung</h3>
 
         @include('step.input', ['title' => 'Firma *', 'required' => true, 'name' => 'firma', 'type' => 'text'])
 
