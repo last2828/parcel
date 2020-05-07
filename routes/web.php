@@ -22,18 +22,18 @@ Route::get('/verified', function () {
     return view('auth.verified');
 });
 
-Route::get('/step/1', function () {
-    return view('step.1');
-});
+// Route::get('/step/1', function () {
+//     return view('step.1');
+// });
 
-Route::get('/step/2', function () {
-    return view('step.2');
-});
+// Route::get('/step/2', function () {
+//     return view('step.2');
+// });
 
-Route::get('/step/3', function () {
-    return view('step.3');
-});
-
+// Route::get('/step/3', function () {
+//     return view('step.3');
+// });
+Route::get('/step/{id}', 'FormController@index')->name('form');
 Route::post('/step/{id}', 'FormController@store')->name('send');
 
 
