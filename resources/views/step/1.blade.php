@@ -2,6 +2,7 @@
 
 @section('content')
 <form method="POST" action="{{route('send', 1)}}">
+  @csrf
   <div class="step">
     <div class="container">
       @include('step.steps', ['current' => 1])
@@ -40,7 +41,7 @@
       <div class="grey">
         <div class="flex">
           <div class="checkbox">
-            <input type="checkbox" name="" id="checkbox" required>
+            <input type="checkbox" name="checkbox" id="checkbox" >
             <label for="checkbox"></label>
           </div>
           <label class="label" for="checkbox">

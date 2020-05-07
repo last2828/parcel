@@ -13,12 +13,12 @@ class FormController extends Controller
     public function store(Request $request, $id)
     {
         dd($id);
-      $fields = $request->toArray();
+        $fields = $request->toArray();
 
-      foreach($fields as $field)
-      {
-          Form::create($field);
-      }
+        foreach($fields as $field)
+        {
+            Form::create($field);
+        }
 
     }
 }
