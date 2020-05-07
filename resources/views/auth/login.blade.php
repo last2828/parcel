@@ -3,7 +3,6 @@
 @section('content')
 <div class="login">
 	<form method="POST" action="{{ route('login') }}">
-		<img src="{{asset('img/logo.png')}}" alt="">
 		@csrf
 
 		@error('email')
@@ -17,9 +16,14 @@
 			</span>
 		@enderror
 
-		<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-Mail">
+		<div class="badge">
+			Prüfen Sie Ihren E-Mail-Ordner. <br>
+			Bestätigen Sie dort Ihre Registrierung.
+		</div>
 
-		<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="new-password" placeholder="Passwort">
+		<input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-Mail">
+
+		<input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="new-password" placeholder="Passwort">
 		
 		<a class="password-reset" href="{{ route('password.request') }}">
 			Passwort vergessen?
@@ -29,9 +33,9 @@
 			Anmelden
 		</button>
 
-		<button type="submit" class="btn btn-secondary">
+		<a href="{{route('register')}}" class="btn btn-secondary">
 			Registrieren
-		</button>
+		</a>
 
 	</form>
 </div>
