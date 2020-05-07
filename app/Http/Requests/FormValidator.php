@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class FormValidator extends FormRequest
@@ -13,7 +14,7 @@ class FormValidator extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,12 +22,11 @@ class FormValidator extends FormRequest
      *
      * @return array
      */
-    public function rules($id)
+    public function rules()
     {
-        dd($id);
-        if($request['step'] === '1')
+        dd($this->id);
         return [
-            true
+
         ];
     }
 }

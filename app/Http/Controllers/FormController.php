@@ -11,11 +11,16 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-    public function store(FormValidator $request, $id)
+    public function store(FormValidator $request)
     {
 
-      $request->validate($id);
       $fields = $request->toArray();
 
     }
+}
+
+
+interface IValidator{
+    public function authorize();
+    public function rules();
 }
