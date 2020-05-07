@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,9 +37,6 @@ Route::get('/step/3', function () {
 Route::post('/step/{id}', 'FormController@store')->name('send');
 
 
-Route::get('/step/{id}', 'FormController@create')->name('step');
-
 Auth::routes(['verify' => true]);
 
 
-Route::get('/home', 'HomeController@index')->name('home');

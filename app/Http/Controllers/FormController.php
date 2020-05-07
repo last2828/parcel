@@ -13,13 +13,9 @@ class FormController extends Controller
 {
     public function store(FormValidator $request, $id)
     {
+
       $request->validate($id);
       $fields = $request->toArray();
-
-      foreach($fields as $field)
-      {
-          Form::create($field);
-      }
 
     }
 }
