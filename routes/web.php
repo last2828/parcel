@@ -27,4 +27,6 @@ Route::get('/step/1', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::post('send', 'FormController@store')->name('')
+
 Route::get('/home', 'HomeController@index')->name('home');
