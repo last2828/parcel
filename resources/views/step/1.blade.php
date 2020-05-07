@@ -22,7 +22,7 @@
         @include('step.input', ['title' => 'Land *', 'required' => false, 'name' => 'land', 'type' => 'text'])
 
         @include('step.input', ['title' => 'Geschäftsführer *', 'required' => false, 'name' => 'ges', 'type' => 'text'])
-        @include('step.input', ['title' => 'Ust.-ID Nr. *', 'required' => false, 'name' => 'id', 'type' => 'text'])
+        @include('step.input', ['title' => 'Ust.-ID Nr. *', 'required' => false, 'name' => 'ust_id', 'type' => 'text'])
         
         
       </div>

@@ -7,8 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Form extends Model
 {
     protected $fillable = [
-        'user_id',
-        'value',
-        'field_name'
+        'firma',
+        'str',
+        'plz',
+        'land',
+        'ges',
+        'ust_id',
+        'tel',
+        'mob',
+        'email',
+        'website',
     ];
 }
