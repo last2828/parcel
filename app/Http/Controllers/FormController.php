@@ -25,6 +25,8 @@ class FormController extends Controller
                 'user_id' => Auth::id()
             ]);
         }
+
+        return redirect()->route('form');
     }
 
     public function destroy($id)

@@ -29,8 +29,9 @@
         <img src="{{asset('img/logo.png')}}" alt="">
       </div>
       <div class="right">
-        <form action="">
-          <button class="logout">
+        <form action="{{route('logout')}}" method="POST">
+            @csrf
+          <button class="logout" type="submit">
             <img src="{{asset('img/icons/logout.svg')}}" alt="">
             AUSLOGGEN
           </button>
