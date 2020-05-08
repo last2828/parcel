@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -16,6 +17,8 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->all();
+
+        DB::update("ALTER TABLE users AUTO_INCREMENT = " . $fields['number_ranges']);
 
         if(isset($fields['customer_notification']))
         {
