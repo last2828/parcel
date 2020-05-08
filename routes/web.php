@@ -18,25 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/verified', function () {
-    return view('auth.verified');
-});
 
-// Route::get('/step/1', function () {
-//     return view('step.1');
-// });
 
-// Route::get('/step/2', function () {
-//     return view('step.2');
-// });
-
-// Route::get('/step/3', function () {
-//     return view('step.3');
-// });
-Route::get('/step/{id}', 'FormController@index')->name('form');
-Route::post('/step/{id}', 'FormController@store')->name('send');
+Route::get('/step/{id}', 'FormController@index')->name('form')->where('id', '[1-6]')->middleware(['auth', 'verified']);
+Route::post('/step/{id}', 'FormController@store')->name('send')->where('id', '[1-6]')->middleware(['auth', 'verified']);
 
 
 Auth::routes(['verify' => true]);
+
+Route::get('/verified', function () {
+    return view('auth.verified');
+})->name('verified');
 
 
