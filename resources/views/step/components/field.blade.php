@@ -7,7 +7,7 @@
 @elseif($type == 'select')
   <div class="field" id="field-{{$name}}">
     <label for="{{$name}}">{{$title}}</label>
-    <select name="{{$name}}" id="{{$name}}" @if ($required) required @endif>
+    <select name="field-{{$name}}" id="{{$name}}" @if ($required) required @endif>
       <option value=""></option>
       @foreach ($options as $option)
         <option value="{{$option['id']}}">{{$option['name']}}</option>  

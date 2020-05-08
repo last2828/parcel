@@ -35,12 +35,11 @@ class FormValidator extends FormRequest
                 'field-6' => 'required|string',
                 'field-7' => 'required|string',
                 'field-9' => 'required|email',
-                'checkbox' => 'required',
             ];
 
             case 2: return [
-                'field-10' => 'required|string',
-                'field-11' => 'required|integer',
+                'field-11' => 'required|string',
+                'field-12' => 'required|integer',
             ];
 
             case 3: return [
@@ -88,7 +87,6 @@ class FormValidator extends FormRequest
             'string' => 'Text eingeben',
             'date' => 'Ungültiges Datumsformat',
             'email' => 'Ungültiges e-mail format',
-            'checkbox.required' => 'Checkbox'
         ];
     }
 }

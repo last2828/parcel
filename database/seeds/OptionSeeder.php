@@ -361,6 +361,14 @@ class OptionSeeder extends Seeder
                 'name' => '6+',
                 'field_id' => 30,
             ],
+
+            //
+            [
+                'id' => 67,
+                'name' => 'wiederkehrende Zahlungen',
+                'field_id' => 40,
+            ],
+
         ];
 
         foreach($options as $option)
