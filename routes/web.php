@@ -22,9 +22,10 @@ Route::get('/', function () {
 
 Route::get('/step/{id}', 'FormController@index')->name('form')->where('id', '[1-6]')->middleware(['auth', 'verified']);
 Route::post('/step/{id}', 'FormController@store')->name('send')->where('id', '[1-6]')->middleware(['auth', 'verified']);
+Route::get('/go-live', 'FormController@endStep')->name('go-live')->middleware(['auth', 'verified']);
 
-Route::get('/admin/index', 'AdminController@index')->name('admin_index')->middleware(['auth', 'verified']);
-Route::put('/admin/update/{id}', 'AdminController@update')->name('admin_update')->middleware(['auth', 'verified']);
+Route::get('/admin/index', 'AdminController@index')->name('admin-index')->middleware(['auth', 'verified']);
+Route::put('/admin/update/{id}', 'AdminController@update')->name('admin-update')->middleware(['auth', 'verified']);
 
 Auth::routes(['verify' => true]);
 

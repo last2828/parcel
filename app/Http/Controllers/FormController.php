@@ -11,13 +11,12 @@ class FormController extends Controller
 {
     public function index($id)
     {
-      $step = Step::where('id', $id)->with('group.field.option')->first();
-      return view('step.index', compact('step'));
+        $step = Step::where('id', $id)->with('group.field.option')->first();
+        return view('step.index', compact('step'));
     }
 
     public function store(FormValidator $request, $id)
     {
-//        dd($request->all(), $id);
         foreach($request->except(['_token', 'checkbox']) as $key => $value) {
             $field_id = explode('-', $key);
             Form::create([
@@ -28,7 +27,12 @@ class FormController extends Controller
         }
 
         $id = ($id+1);
-        return redirect()->route('form', $id);
+
+        if($id == 7){
+            return redirect()->route('go-live');
+        }else {
+            return redirect()->route('form', $id);
+        }
     }
 
     public function destroy($id)
@@ -36,5 +40,9 @@ class FormController extends Controller
 
     }
 
+    public function endStep()
+    {
+        return view('go-live');
+    }
 
 }
