@@ -4,7 +4,7 @@
     <div class="step">
         <div class="container">
             <h2>Admin Panel</h2>
-        <form method="POST" action="{{route('admin_update', $fields['id'])}}">
+        <form method="POST" action="{{route('admin-update', $fields['id'])}}">
             @method('PUT')
             @csrf
             <div class="group">

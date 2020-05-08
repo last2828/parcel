@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Form;
 use App\Step;
 use App\Http\Requests\FormValidator;
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
@@ -35,6 +38,24 @@ class FormController extends Controller
         }
     }
 
+    /**
+     * Send an e-mail reminder to the user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function sendEmailReminder($id)
+    {
+        $user = User::findOrFail($id);
+
+        Mail::send('test', ['user' => $user], function ($m) use ($user) {
+            $m->from('hello@app.com', 'Your Application');
+
+            $m->to($user->email, $user->name)->subject('Your Reminder!');
+        });
+    }
+
     public function destroy($id)
     {
 
@@ -42,6 +63,7 @@ class FormController extends Controller
 
     public function endStep()
     {
+        $this->sendEmailReminder(1);
         return view('go-live');
     }
 

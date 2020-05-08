@@ -25,6 +25,6 @@ class AdminController extends Controller
         }
 
         Admin::find($id)->update($fields);
-        return redirect()->route('admin_index');
+        return redirect()->route('admin-index');
     }
 }

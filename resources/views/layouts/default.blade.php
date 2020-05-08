@@ -36,7 +36,9 @@
             AUSLOGGEN
           </button>
         </form>
-        <p>Ihre Kundennummer: 123456789</p>
+      @if(\App\User::find(Auth::id())->is_admin == false)
+        <p>Ihre Kundennummer: {{Auth::id()}}</p>
+      @endif
       </div>
      </div>
     </div>

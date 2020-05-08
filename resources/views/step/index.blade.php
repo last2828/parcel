@@ -3,7 +3,7 @@
 @section('content')
 <form method="POST" action="{{route('send', $step['id'])}}">
   @csrf
-  {{--@if(isset($errors))@dd($errors->all())@endif--}}
+
   <div class="step">
     <div class="container">
       @include('step.components.steps', ['current' => $step['id']])
