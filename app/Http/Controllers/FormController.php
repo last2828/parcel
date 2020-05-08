@@ -17,6 +17,7 @@ class FormController extends Controller
 
     public function store(FormValidator $request, $id)
     {
+//        dd($request->all(), $id);
         foreach($request->except(['_token', 'checkbox']) as $key => $value) {
             $field_id = explode('-', $key);
             Form::create([
@@ -26,7 +27,8 @@ class FormController extends Controller
             ]);
         }
 
-        return redirect()->route('form');
+        $id = ($id+1);
+        return redirect()->route('form', $id);
     }
 
     public function destroy($id)
