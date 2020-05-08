@@ -16,10 +16,12 @@
 			</span>
 		@enderror
 
-		<div class="badge">
-			Prüfen Sie Ihren E-Mail-Ordner. <br>
-			Bestätigen Sie dort Ihre Registrierung.
-		</div>
+		@if (session('message'))
+			<div class="badge">
+				Prüfen Sie Ihren E-Mail-Ordner. <br>
+				Bestätigen Sie dort Ihre Registrierung.
+			</div>
+		@endif
 
 		<input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-Mail">
 

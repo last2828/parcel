@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -69,10 +71,10 @@ class RegisterController extends Controller
         ]);
     }
 
-//    protected function redirectTo()
-//    {
-//        dd('1');
-//        return redirect()->route('login')->with('register', 1);
-//    }
-
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        return $this->registered($request, $user) ?: redirect('/login')->with('message', true);
+    }
 }
