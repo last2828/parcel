@@ -14,7 +14,24 @@ class FormController extends Controller
 {
     public function index($id)
     {
-        $step = Step::where('id', $id)->with('group.field.option')->first();
+        $data = Form::where('user_id', Auth::id())->get('field_id');
+
+        foreach($data as $key => $value){
+
+//            dd($value['field_id']);
+            if($value['field_id'] == '1')
+            {
+                $stepId = '2';
+            }
+            elseif($value['field_id'] == '11'){
+                $stepId = '3';
+            }elseif($value['field_id'] == '17')
+            {
+                $stepId = '4';
+            }
+        }
+
+        $step = Step::where('id', $stepId)->with('group.field.option')->first();
         return view('step.index', compact('step'));
     }
 
@@ -28,8 +45,6 @@ class FormController extends Controller
                 'user_id' => Auth::id()
             ]);
         }
-
-        $id = ($id+1);
 
         if($id == 7){
             return redirect()->route('go-live');
