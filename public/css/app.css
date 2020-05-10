@@ -203,13 +203,32 @@
 .steps {
   display: flex;
   justify-content: space-between;
-  padding: 50px 0;
+  padding: 50px;
+}
+
+@media (max-width: 767px) {
+  .steps {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .steps .block {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  .steps .block {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .steps .block.current {
+    display: block;
+  }
 }
 
 .steps .block .circle {
@@ -233,6 +252,7 @@
   line-height: 1.36;
   text-align: center;
   color: #000000;
+  max-width: 100px;
 }
 
 .step {
@@ -261,6 +281,13 @@
   margin-bottom: 20px;
 }
 
+.step .group p {
+  font-size: 16px;
+  line-height: 1.56;
+  text-align: left;
+  color: #737373;
+}
+
 .step .group .field {
   margin-bottom: 20px;
 }
@@ -284,6 +311,11 @@
   color: #3e4c69;
   padding-left: 14px;
   box-sizing: border-box;
+}
+
+.step .group .field input.error,
+.step .group .field select.error {
+  border: 2px solid red;
 }
 
 .step .grey {
@@ -368,6 +400,12 @@
   border: 1px solid #661600;
 }
 
+@media (max-width: 767px) {
+  .step .btn {
+    width: 100%;
+  }
+}
+
 .step #field-28,
 .step #field-29,
 .step #field-30 {
@@ -409,5 +447,6 @@ body {
   max-width: 1280px;
   box-sizing: border-box;
   margin: 0 auto;
+  padding: 0 20px;
 }
 

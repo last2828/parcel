@@ -19,7 +19,7 @@ class isUser
         if (Auth::user() &&  Auth::user()->is_admin == 0) {
             return $next($request);
         }else{
-            return abort(404);
+            return redirect()->route('login');
         }
     }
 }

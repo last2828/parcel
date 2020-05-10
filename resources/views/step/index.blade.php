@@ -1,8 +1,14 @@
 @extends('layouts.default')
 
 @section('content')
+<ul>
+  @foreach ($errors->all() as $error)
+    <li>{{$error}}</li>
+  @endforeach
+</ul>
 <form method="POST" action="{{route('send', $step['id'])}}">
   @csrf
+  
 
   <div class="step">
     <div class="container">
@@ -14,7 +20,7 @@
       <div class="group">
         <h3>{{$group['name']}}</h3>
         @foreach ($group['field'] as $field)
-          @include('step.components.field', ['title' => $field['name'], 'required' => $field['required'], 'name' => $field['id'], 'type' => $field['type'], 'options' => $field['option']])
+          @include('step.components.field', ['title' => $field['name'], 'required' => $field['required'], 'id' => $field['id'], 'type' => $field['type'], 'options' => $field['option']])
         @endforeach
 
       </div>

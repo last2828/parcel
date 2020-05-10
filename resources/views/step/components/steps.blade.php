@@ -34,7 +34,7 @@ $steps = [
 
 <div class="steps">
   @foreach ($steps as $step)
-    <div class="block">
+    <div class="block @if($current == $step['id']) current @endif">
       <div class="circle @if($current == $step['id']) current @endif">
         @if ($current <= $step['id'])
             {{$step['id']}}

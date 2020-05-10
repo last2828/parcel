@@ -12,26 +12,37 @@ use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
-    public function index($id)
+    public function index()
     {
         $data = Form::where('user_id', Auth::id())->get('field_id');
-
-        foreach($data as $key => $value){
-
-//            dd($value['field_id']);
-            if($value['field_id'] == '1')
-            {
-                $stepId = '2';
-            }
-            elseif($value['field_id'] == '11'){
-                $stepId = '3';
-            }elseif($value['field_id'] == '17')
-            {
-                $stepId = '4';
+        $step_id = 1;
+        if ($data) {
+            foreach($data as $key => $value){
+                switch ($value['field_id']) {
+                    case '1':
+                        $step_id = 2;
+                        break;
+                    case '11':
+                        $step_id = 3;
+                        break;
+                    case '16':
+                        $step_id = 4;
+                        break;
+                    case '22':
+                        $step_id = 5;
+                        break;
+                    case '34':
+                        $step_id = 6;
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
             }
         }
+        // return $step_id;
 
-        $step = Step::where('id', $stepId)->with('group.field.option')->first();
+        $step = Step::where('id', $step_id)->with('group.field.option')->first();
         return view('step.index', compact('step'));
     }
 
@@ -49,7 +60,7 @@ class FormController extends Controller
         if($id == 7){
             return redirect()->route('go-live');
         }else {
-            return redirect()->route('form', $id);
+            return redirect()->route('step');
         }
     }
 
@@ -79,7 +90,7 @@ class FormController extends Controller
     public function endStep()
     {
         $this->sendEmailReminder(1);
-        return view('go-live');
+        return view('step.go-live');
     }
 
 }
