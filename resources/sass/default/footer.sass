@@ -4,11 +4,20 @@
   .flex
     display: flex
     justify-content: flex-end
+    @media (max-width: 767px)
+      justify-content: center
   ul
     display: flex
     list-style: none
+    @media (max-width: 767px)
+      flex-direction: column
+      padding-left: 0
     li
       margin-left: 40px
+      @media (max-width: 767px)
+        margin-left: 0
+        text-align: center
+        margin-bottom: 10px
       a
         font-size: 20px
         text-align: left
