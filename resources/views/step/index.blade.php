@@ -30,7 +30,7 @@
         <div class="grey">
           <div class="flex">
             <div class="checkbox">
-              <input type="checkbox" name="checkbox" id="checkbox" >
+              <input type="checkbox" name="checkbox" id="checkbox" required>
               <label for="checkbox"></label>
             </div>
             <label class="label" for="checkbox">
@@ -42,7 +42,7 @@
         <div class="grey">
           <div class="flex">
             <div class="checkbox">
-              <input type="checkbox" name="checkbox" id="checkbox" >
+              <input type="checkbox" name="checkbox" id="checkbox" required>
               <label for="checkbox"></label>
             </div>
             <label class="label" for="checkbox">
