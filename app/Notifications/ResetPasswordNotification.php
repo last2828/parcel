@@ -73,10 +73,7 @@ class ResetPasswordNotification extends Notification
             ], false));
         }
 
-        return (new MailMessage)
-            ->subject('Reset Password Notification 2')
-            ->action('Reset Password', $url)
-            ->line('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]);
+        return (new MailMessage)->view('emails.reset', compact('url'));
     }
 
     /**

@@ -2,11 +2,12 @@
 
 @section('content')
 <div class="email">
-    @if (session('status'))
-			<div class="alert alert-success" role="alert">
+		@if (session('status'))
+			<div class="badge">
 				{{ session('status') }}
 			</div>
-    @endif
+		@endif
+		
 
 		<form method="POST" action="{{ route('password.email') }}">
 			@csrf
