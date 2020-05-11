@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <!DOCTYPE html>
     <!--[if IE]><div class="ie-browser"><![endif]-->
     <table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; width: 100%;" width="100%">
@@ -81,7 +82,8 @@
                             <div style="font-size:16px;text-align:center;font-family:Arial, Helvetica Neue, Helvetica, sans-serif">
                               <div class="block">
                                 <div class="field">
-                                  {{$field->form->name}}
+
+                                  {{$field->field->first()['name']}}
                                 </div>
                                 <div class="text">
                                   {{$field['value']}}

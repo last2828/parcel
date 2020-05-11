@@ -18,7 +18,9 @@ class AdminController extends Controller
     {
         $fields = $request->all();
 
-        DB::update("ALTER TABLE users AUTO_INCREMENT = " . $fields['number_ranges']);
+        if(isset($fields['number_ranges'])){
+            DB::update("ALTER TABLE users AUTO_INCREMENT = " . $fields['number_ranges']);
+        }
 
         if(isset($fields['customer_notification']))
         {
@@ -26,6 +28,7 @@ class AdminController extends Controller
         }else{
             $fields['customer_notification'] = false;
         }
+
 
         Admin::find($id)->update($fields);
         return redirect()->route('admin-index');

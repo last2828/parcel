@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Form;
+use App\Mail\AdminMail;
+use App\Notifications\AdminNotification;
 use App\Step;
 use App\User;
 use App\Admin;
@@ -54,6 +56,8 @@ class FormController extends Controller
             return view('step.index', compact('step'));
         }
 
+
+
     }
 
     public function store(FormValidator $request, $id)
@@ -92,19 +96,22 @@ class FormController extends Controller
         }
     }
 
-    public function sendEmailFormToAdmin()
+    public function sendEmailFormToAdmin($id)
     {
-        $email_recipients = Admin::where('id', 1)->first();
+        $email_recipients = Admin::where('id', 1)->first()['email_recipient'];
 
-        if(isset($email_recipients['email_recipient']))
+        if(isset($email_recipients))
         {
+            $data = json_decode($email_recipients, true);
+            $emails = [];
+            foreach($data as $key => $value){
+                array_push($emails, $value['value']);
+            }
+
             $user = User::findOrFail($id);
 
-            Mail::send('emails.admin', ['user' => $user], function ($m) use ($user) {
-                $m->from('parcel@email.com', 'PARCEL.ONE-Team');
+            Mail::to($emails)->send(new AdminMail($user));
 
-                $m->to($user->email, $user->name)->subject('Neue Kunden-Registrierung!');
-            });
         }
     }
 
@@ -115,8 +122,8 @@ class FormController extends Controller
 
     public function sendEmails()
     {
-       $this->sendEmailFormToUser(Auth::id());
-        // $this->sendEmailFormToAdmin();
+//       $this->sendEmailFormToUser(Auth::id());
+         $this->sendEmailFormToAdmin(Auth::id());
     }
 
 }
