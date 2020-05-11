@@ -43,16 +43,9 @@ class MyNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $verificationUrl = $this->verificationUrl($notifiable);
+        $url = $this->verificationUrl($notifiable);
 
-        return (new MailMessage)
-            ->line('<h2>Danke, dass Sie sich bei parcel.one<br>angemeldet haben!<h2>')
-            ->line('<p>Wir freuen uns, Sie bei uns begrüßen zu dürfen.</p>')
-            ->line('<p>Bevor Sie loslegen können, klicken Sie bitte auf den untenstehenden Link um Ihre<br>E-Mail-Adresse zu bestätigen.</p>')
-            ->action('Verify Email Address', $verificationUrl )
-            ->line('<p>Wir wünschen Ihnen viel Erfolg.</p>')
-            ->line('<p>Mit freundlichen Grüßen,<p>')
-            ->line('<p>Ihr parcel.one-Team</p>');
+        return (new MailMessage)->view('emails.verify', compact('url'));
     }
 
     /**
