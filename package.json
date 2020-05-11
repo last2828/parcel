@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "@yaireo/tagify": "^3.8.0"
+        "@yaireo/tagify": "^3.8.0",
+        "dayjs": "^1.8.26"
     }
 }

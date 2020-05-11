@@ -20,7 +20,7 @@ class FormController extends Controller
     public function index()
     {
         $data = Form::where('user_id', Auth::id())->get('field_id');
-        $step_id = 1;
+        $step_id = 6;
         if ($data) {
             foreach($data as $key => $value){
                 switch ($value['field_id']) {
@@ -71,6 +71,7 @@ class FormController extends Controller
             ]);
         }
 
+        
         if($id == 6){
             $this->sendEmails();
         }

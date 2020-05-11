@@ -75,7 +75,7 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
-        return $this->registered($request, $user) ?: redirect('/login')->with('message', true);
+        return $this->registered($request, $user) ?: redirect('/login')->with('message', 'Prüfen Sie Ihren E-Mail-Ordner. Bestätigen Sie dort Ihre Registrierung.');
     }
 
 }

@@ -33,7 +33,9 @@ class AdminMail extends Mailable
     public function build()
     {
         $user = $this->user;
-        return $this->from('info@parcel.io', 'PARCEL.ONE-Team')
+        return $this
+                    ->subject("Neue Kunden-Registrierung (Kunden-Nr.: $user->id)")
+                    ->from('info@parcel.io', 'PARCEL.ONE-Team')
                     ->view('emails.admin', compact('user'));
     }
 }

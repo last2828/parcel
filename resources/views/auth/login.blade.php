@@ -18,8 +18,7 @@
 
 		@if (session('message'))
 			<div class="badge">
-				Prüfen Sie Ihren E-Mail-Ordner. <br>
-				Bestätigen Sie dort Ihre Registrierung.
+				{{session('message')}}
 			</div>
 		@endif
 

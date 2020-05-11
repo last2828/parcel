@@ -218,6 +218,18 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.header .logout:hover {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  transition: background 0.3s;
+}
+
+.header .logout:hover img {
+  display: none;
 }
 
 .header .logout img {
@@ -376,6 +388,14 @@
   .step .grey .flex .label {
     font-size: 12px;
   }
+}
+
+.step .grey b {
+  font-weight: 700;
+}
+
+.step .grey p {
+  font-weight: 500;
 }
 
 .step .checkbox {

@@ -21,7 +21,8 @@
                       <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:25px; padding-bottom:25px; padding-right: 0px; padding-left: 0px;">
                         <!--<![endif]-->
                         <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-                          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="{{asset('img/logo.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 195px; display: block;" title="Alternate text" width="195"> <!--[if mso]></td></tr></table><![endif]-->
+                          <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
+                            <a href="https://parcel.one/" target="_blank"><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="{{asset('img/logo.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 195px; display: block;" title="Alternate text" width="195"></a> <!--[if mso]></td></tr></table><![endif]-->
                         </div><!--[if (!mso)&(!IE)]><!-->
                       </div><!--<![endif]-->
                     </div>
@@ -80,38 +81,14 @@
                           </div><!--[if mso]></td></tr></table><![endif]-->
                           @foreach ($user['form'] as $field)
                             <div style="font-size:16px;text-align:center;font-family:Arial, Helvetica Neue, Helvetica, sans-serif">
-                              <div class="block">
-                                <div class="field">
-
+                              <div class="block" style="border: solid 1px #3e4c69;border-radius: 3px;margin-bottom: 20px;">
+                                <div class="field" style="background-color: #3e4c69;text-align: left;color: #ffffff;padding: 10px;font-size: 16px;">
                                   {{$field->field->first()['name']}}
                                 </div>
-                                <div class="text">
+                                <div class="text" style="background-color: #ffffff;text-align: left;padding: 10px;font-size: 16px;color: #737373;">
                                   {{$field['value']}}
                                 </div>
                               </div>
-                              <style>
-                                                        .block {
-                                                            border: solid 1px #3e4c69;
-                                                            border-radius: 3px;
-                                                            margin-bottom: 20px;
-                                                        }
-    
-                                                        .field {
-                                                            background-color: #3e4c69;
-                                                            text-align: left;
-                                                            color: #ffffff;
-                                                            padding: 10px;
-                                                            font-size: 16px;
-                                                        }
-    
-                                                        .text {
-                                                            background-color: #ffffff;
-                                                            text-align: left;
-                                                            padding: 10px;
-                                                            font-size: 16px;
-                                                            color: #737373;
-                                                        }
-                              </style>
                             </div>
                           @endforeach
                           <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: 'Trebuchet MS', Tahoma, sans-serif"><![endif]-->

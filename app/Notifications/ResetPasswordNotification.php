@@ -74,6 +74,7 @@ class ResetPasswordNotification extends Notification
         }
 
         return (new MailMessage)
+            ->from('info@parcel.one', 'PARCEL.ONE-Team')
             ->subject('Passwort wiederherstellen')    
             ->view('emails.reset', compact('url'));
     }

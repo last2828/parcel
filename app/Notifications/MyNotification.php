@@ -46,7 +46,7 @@ class MyNotification extends Notification
         $url = $this->verificationUrl($notifiable);
 
         return (new MailMessage)
-        ->subject('Passwort wiederherstellen')    
+            ->from('info@parcel.one', 'PARCEL.ONE-Team')
             ->subject('Bitte bestätigen Sie Ihr parcel.one-Konto')
             ->view('emails.verify', compact('url'));
     }
