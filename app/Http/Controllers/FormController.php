@@ -71,7 +71,7 @@ class FormController extends Controller
             ]);
         }
 
-        if($id == 2){
+        if($id == 6){
             $this->sendEmails();
         }
 
@@ -122,8 +122,8 @@ class FormController extends Controller
 
     public function sendEmails()
     {
-//       $this->sendEmailFormToUser(Auth::id());
-         $this->sendEmailFormToAdmin(Auth::id());
+        $this->sendEmailFormToUser(Auth::id());
+        $this->sendEmailFormToAdmin(Auth::id());
     }
 
 }
