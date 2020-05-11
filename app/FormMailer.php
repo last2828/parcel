@@ -36,7 +36,7 @@ class FormMailer extends Model implements IMailer
         if($customer_notification['customer_notification'] == true)
         {
             $user = User::findOrFail($id);
-            $user->notify(new UserNotification());
+            $user->notify(new UserNotification($user));
         }
     }
 }

@@ -13,10 +13,10 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $fields = [
-                'id' => 1,
-                'email_recipient' => null,
-                'number_ranges' => null,
-                'customer_notification' => true,
+            'id' => 1,
+            'email_recipient' => null,
+            'number_ranges' => null,
+            'customer_notification' => true,
         ];
 
         Admin::create($fields);
