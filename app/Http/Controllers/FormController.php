@@ -98,7 +98,7 @@ class FormController extends Controller
     public function sendEmailFormToAdmin()
     {
         $email_recipients = Admin::where('id', 1)->first();
-        
+
         if(isset($email_recipients['email_recipient']))
         {
             $user = User::findOrFail($id);
