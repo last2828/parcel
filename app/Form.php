@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Form extends Model
 {
@@ -15,6 +16,22 @@ class Form extends Model
     public function field()
     {
         return $this->hasMany(Field::class, 'id', 'field_id');
+    }
+
+    public static function saveFormFields($request)
+    {
+        unset($request['_token']);
+        dd($request);
+        foreach($request as $key => $value) {
+            $field_id = explode('-', $key);
+            self::create([
+                'value' =>  $value,
+                'field_id' => $field_id[1],
+                'user_id' => Auth::id()
+            ]);
+        }
+
+        return true;
     }
 
 }
