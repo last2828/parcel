@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,7 +27,9 @@
     <div class="container">
      <div class="flex">
       <div class="logo">
-        <img src="{{asset('img/logo.png')}}" alt="">
+        <a href="https://parcel.one/">
+          <img src="{{asset('img/logo.png')}}" alt="">
+        </a>
       </div>
       <div class="right">
         <form action="{{route('logout')}}" method="POST">

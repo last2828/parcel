@@ -24,7 +24,9 @@
 <body>
   <div class="auth">
     <div class="logo">
-      <img src="{{asset('img/logo.png')}}" alt="">
+      <a href="https://parcel.one/">
+        <img src="{{asset('img/logo.png')}}" alt="">
+      </a>
     </div>
     @yield('content')
   </div>

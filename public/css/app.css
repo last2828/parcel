@@ -253,7 +253,7 @@
 
 @media (max-width: 767px) {
   .steps .block.current {
-    display: block;
+    display: flex;
   }
 }
 
@@ -328,7 +328,9 @@
 }
 
 .step .group .field input,
-.step .group .field select {
+.step .group .field select,
+.step .group .field .tagify {
+  align-items: center;
   border-radius: 3px;
   border: solid 1px #3e4c69;
   background-color: #ffffff;
@@ -340,8 +342,13 @@
 }
 
 .step .group .field input.error,
-.step .group .field select.error {
+.step .group .field select.error,
+.step .group .field .tagify.error {
   border: 2px solid red;
+}
+
+.step .group .field .tagify__tag > div::before {
+  border-radius: 10px;
 }
 
 .step .grey {
@@ -354,41 +361,6 @@
 
 .step .grey .flex {
   display: flex;
-}
-
-.step .grey .flex .checkbox {
-  margin-right: 10px;
-}
-
-.step .grey .flex .checkbox label {
-  display: flex;
-  width: 20px;
-  height: 20px;
-  border-radius: 3px;
-  border: solid 1px #3e4c69;
-  position: relative;
-}
-
-.step .grey .flex .checkbox label:before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 6px;
-  width: 6px;
-  height: 14px;
-  border: solid #3e4c69;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.step .grey .flex .checkbox input {
-  display: none;
-}
-
-.step .grey .flex .checkbox input:checked ~ label:before {
-  opacity: 1;
 }
 
 .step .grey .flex .label {
@@ -404,6 +376,42 @@
   .step .grey .flex .label {
     font-size: 12px;
   }
+}
+
+.step .checkbox {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.step .checkbox label {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: solid 1px #3e4c69;
+  position: relative;
+}
+
+.step .checkbox label:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 6px;
+  width: 6px;
+  height: 14px;
+  border: solid #3e4c69;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.step .checkbox input {
+  display: none;
+}
+
+.step .checkbox input:checked ~ label:before {
+  opacity: 1;
 }
 
 .step .btn {
@@ -431,6 +439,10 @@
   background-color: #ffffff;
   color: #661600;
   border: 1px solid #661600;
+}
+
+.step .btn-mt20 {
+  margin-top: 20px;
 }
 
 @media (max-width: 767px) {

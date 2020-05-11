@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 
-Route::get('/step', 'FormController@index')->name('step')->middleware(['user', 'verified']);
+Route::get('/registrierung', 'FormController@index')->name('step')->middleware(['user', 'verified']);
 Route::post('/step/{id}', 'FormController@store')->name('send')->where('id', '[1-6]')->middleware(['user', 'verified']);
 Route::get('/go-live', 'FormController@endStep')->name('go-live')->middleware(['user', 'verified']);
 
