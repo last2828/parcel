@@ -3,17 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Form;
-use App\Mail\AdminMail;
-use App\Notifications\AdminNotification;
+use App\FormMailer;
+use App\IMailer;
+use App\IForm;
 use App\Step;
-use App\User;
-use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests\FormValidator;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use App\Notifications\UserNotification;
-use Illuminate\Support\Facades\Notification;
 
 class FormController extends Controller
 {
@@ -62,18 +58,11 @@ class FormController extends Controller
 
     public function store(FormValidator $request, $id)
     {
-        foreach($request->except(['_token', 'checkbox']) as $key => $value) {
-            $field_id = explode('-', $key);
-            Form::create([
-                'value' =>  $value,
-                'field_id' => $field_id[1],
-                'user_id' => Auth::id()
-            ]);
-        }
+        Form::saveFormFields($request);
+//        $form->saveFormFields(new Form($request));
 
-        
         if($id == 6){
-            $this->sendEmails();
+            $this->sendEmails(new FormMailer);
         }
 
         return redirect()->route('step');
@@ -86,45 +75,20 @@ class FormController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function sendEmailFormToUser($id)
-    {
-        $customer_notification = Admin::where('id', 1)->first();
 
-        if($customer_notification['customer_notification'] == true)
-        {
-            $user = User::findOrFail($id);
-            $user->notify(new UserNotification());
-        }
-    }
 
-    public function sendEmailFormToAdmin($id)
-    {
-        $email_recipients = Admin::where('id', 1)->first()['email_recipient'];
-
-        if(isset($email_recipients))
-        {
-            $data = json_decode($email_recipients, true);
-            $emails = [];
-            foreach($data as $key => $value){
-                array_push($emails, $value['value']);
-            }
-
-            $user = User::findOrFail($id);
-
-            Mail::to($emails)->send(new AdminMail($user));
-
-        }
-    }
 
     public function destroy($id)
     {
 
     }
 
-    public function sendEmails()
+    public function sendEmails(IMailer $mailer)
     {
-        $this->sendEmailFormToUser(Auth::id());
-        $this->sendEmailFormToAdmin(Auth::id());
+        $mailer->sendEmailFormToAdmin(Auth::id());
+        $mailer->sendEmailFormToUser(Auth::id());
     }
+
+
 
 }
