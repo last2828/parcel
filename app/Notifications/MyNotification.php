@@ -45,7 +45,9 @@ class MyNotification extends Notification
     {
         $url = $this->verificationUrl($notifiable);
 
-        return (new MailMessage)->view('emails.verify', compact('url'));
+        return (new MailMessage)
+            ->subject('Bitte bestätigen Sie Ihr parcel.one-Konto')
+            ->view('emails.verify', compact('url'));
     }
 
     /**
