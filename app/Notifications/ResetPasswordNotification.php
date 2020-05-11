@@ -73,7 +73,9 @@ class ResetPasswordNotification extends Notification
             ], false));
         }
 
-        return (new MailMessage)->view('emails.reset', compact('url'));
+        return (new MailMessage)
+            ->subject('Passwort wiederherstellen')    
+            ->view('emails.reset', compact('url'));
     }
 
     /**
