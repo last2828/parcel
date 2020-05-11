@@ -27,8 +27,12 @@ Route::get('/admin', 'AdminController@index')->name('admin-index')->middleware([
 Route::put('/admin/update/{id}', 'AdminController@update')->name('admin-update')->middleware(['admin', 'verified']);
 
 Auth::routes(['verify' => true]);
+Route::get('/zuruecksetzen',[
+    'as' => 'password.request',
+    'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm'
+]);
 
-Route::get('/verified', function () {
+Route::get('/bestaetigt', function () {
     return view('auth.verified');
 })->name('verified');
 
