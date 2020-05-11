@@ -369,6 +369,22 @@ class OptionSeeder extends Seeder
                 'field_id' => 40,
             ],
 
+            //parcel volume
+            [
+                'id' => 68,
+                'name' => 'Ja',
+                'field_id' => 19,
+            ],
+
+            [
+                'id' => 69,
+                'name' => 'Nein',
+                'field_id' => 19,
+            ],
+
+
+
+
         ];
 
         foreach($options as $option)

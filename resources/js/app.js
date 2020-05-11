@@ -15,3 +15,12 @@ $('#27').change(function() {
     $('#field-28,#field-29,#field-30').slideUp()
   }
 });
+
+
+$('#19').change(function() {
+  if ($(this).val() == '68') {
+    $('#field-20,#field-21').slideDown()
+  } else{
+    $('#field-20,#field-21').slideUp()
+  }
+});

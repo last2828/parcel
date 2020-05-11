@@ -1,6 +1,6 @@
 
 @if ($type == 'text' || $type == 'email' || $type == 'number' || $type == 'date')
-  <div class="field">
+  <div class="field" id="field-{{$id}}">
     <label for="{{$id}}">{{$title}}</label>
     <input type="{{$type}}" id="{{$id}}" name="field-{{$id}}" @if ($required) required @endif 
     class="@if ($errors->has(`field-{$id}`)) error @endif">

@@ -11016,6 +11016,13 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('#27').change(function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('#field-28,#field-29,#field-30').slideUp();
   }
 });
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('#19').change(function () {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val() == '68') {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#field-20,#field-21').slideDown();
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('#field-20,#field-21').slideUp();
+  }
+});
 
 /***/ }),
 
