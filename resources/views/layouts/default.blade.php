@@ -52,9 +52,9 @@
     <div class="container">
       <div class="flex">
         <ul>
-          <li><a href="#">AGB</a></li>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
+          <li><a href="https://parcel.one/wp-content/uploads/2020/03/P1-Versandbedingungen-AGB.pdf" target="_blank">AGB</a></li>
+          <li><a href="https://parcel.one/Impressum" target="_blank">Impressum</a></li>
+          <li><a href="https://parcel.one/datenschutz" target="_blank">Datenschutz</a></li>
         </ul>
       </div>
     </div>
