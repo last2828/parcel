@@ -27,7 +27,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/middle';
 
     protected function resetPassword($user, $password)
     {
@@ -36,7 +36,7 @@ class ResetPasswordController extends Controller
             'remember_token' => Str::random(60),
         ])->save();
 
-        return redirect('/login')->with('message', 'Ihr Passwort wurde wiederhergestellt. Sie können sofort loslegen!');
+        return redirect('/middle');
 
         //$this->guard()->login($user);
     }

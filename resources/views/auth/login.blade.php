@@ -15,7 +15,6 @@
 				Dieser Benutzer ist nicht registriert.
 			</div>
 		@enderror
-
 		@if (session('message'))
 			<div class="badge">
 				{{session('message')}}
