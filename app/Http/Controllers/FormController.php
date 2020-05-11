@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
 use App\Form;
 use App\Step;
-use App\Http\Requests\FormValidator;
 use App\User;
+use App\Admin;
 use Illuminate\Http\Request;
+use App\Http\Requests\FormValidator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Notifications\UserNotification;
+use Illuminate\Support\Facades\Notification;
 
 class FormController extends Controller
 {
@@ -65,7 +67,7 @@ class FormController extends Controller
             ]);
         }
 
-        if($id == 6){
+        if($id == 2){
             $this->sendEmails();
         }
 
@@ -86,12 +88,7 @@ class FormController extends Controller
         if($customer_notification['customer_notification'] == true)
         {
             $user = User::findOrFail($id);
-
-            Mail::send('emails.user', ['user' => $user], function ($m) use ($user) {
-                $m->from('parcel@email.com', 'PARCEL.ONE-Team');
-
-                $m->to($user->email, $user->name)->subject('Neue Kunden-Registrierung!');
-            });
+            $user->notify(new UserNotification());
         }
     }
 
@@ -118,8 +115,8 @@ class FormController extends Controller
 
     public function sendEmails()
     {
-//        $this->sendEmailFormToUser(Auth::id());
-        $this->sendEmailFormToAdmin();
+       $this->sendEmailFormToUser(Auth::id());
+        // $this->sendEmailFormToAdmin();
     }
 
 }

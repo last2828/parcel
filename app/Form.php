@@ -12,4 +12,9 @@ class Form extends Model
         'user_id'
     ];
 
+    public function field()
+    {
+        return $this->hasMany(Field::class, 'id', 'field_id');
+    }
+
 }
