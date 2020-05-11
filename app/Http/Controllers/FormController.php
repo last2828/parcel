@@ -97,9 +97,9 @@ class FormController extends Controller
 
     public function sendEmailFormToAdmin()
     {
-        $email_recipients = Admin::where('id', 1)->first('email_recipients');
-        dd($email_recipients);
-        if(isset($email_recipients['customer_notification']))
+        $email_recipients = Admin::where('id', 1)->first();
+        
+        if(isset($email_recipients['email_recipient']))
         {
             $user = User::findOrFail($id);
 
@@ -118,7 +118,7 @@ class FormController extends Controller
 
     public function sendEmails()
     {
-        $this->sendEmailFormToUser(Auth::id());
+//        $this->sendEmailFormToUser(Auth::id());
         $this->sendEmailFormToAdmin();
     }
 
