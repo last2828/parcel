@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use App\Form;
 use App\Step;
 use App\Http\Requests\FormValidator;
@@ -34,16 +35,23 @@ class FormController extends Controller
                     case '34':
                         $step_id = 6;
                         break;
+                    case '41':
+                        $step_id = 7;
+                        break;
                     default:
                         # code...
                         break;
                 }
             }
         }
-        // return $step_id;
 
-        $step = Step::where('id', $step_id)->with('group.field.option')->first();
-        return view('step.index', compact('step'));
+        if($step_id == 7){
+            return view('step.go-live');
+        }else{
+            $step = Step::where('id', $step_id)->with('group.field.option')->first();
+            return view('step.index', compact('step'));
+        }
+
     }
 
     public function store(FormValidator $request, $id)
@@ -57,11 +65,11 @@ class FormController extends Controller
             ]);
         }
 
-        if($id == 7){
-            return redirect()->route('go-live');
-        }else {
-            return redirect()->route('step');
+        if($id == 6){
+            $this->sendEmails();
         }
+
+        return redirect()->route('step');
     }
 
     /**
@@ -71,15 +79,36 @@ class FormController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function sendEmailReminder($id)
+    public function sendEmailFormToUser($id)
     {
-        $user = User::findOrFail($id);
+        $customer_notification = Admin::where('id', 1)->first();
 
-        Mail::send('test', ['user' => $user], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
+        if($customer_notification['customer_notification'] == true)
+        {
+            $user = User::findOrFail($id);
 
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
-        });
+            Mail::send('emails.user', ['user' => $user], function ($m) use ($user) {
+                $m->from('parcel@email.com', 'PARCEL.ONE-Team');
+
+                $m->to($user->email, $user->name)->subject('Neue Kunden-Registrierung!');
+            });
+        }
+    }
+
+    public function sendEmailFormToAdmin()
+    {
+        $email_recipients = Admin::where('id', 1)->first('email_recipients');
+        dd($email_recipients);
+        if(isset($email_recipients['customer_notification']))
+        {
+            $user = User::findOrFail($id);
+
+            Mail::send('emails.admin', ['user' => $user], function ($m) use ($user) {
+                $m->from('parcel@email.com', 'PARCEL.ONE-Team');
+
+                $m->to($user->email, $user->name)->subject('Neue Kunden-Registrierung!');
+            });
+        }
     }
 
     public function destroy($id)
@@ -87,10 +116,10 @@ class FormController extends Controller
 
     }
 
-    public function endStep()
+    public function sendEmails()
     {
-        $this->sendEmailReminder(1);
-        return view('step.go-live');
+        $this->sendEmailFormToUser(Auth::id());
+        $this->sendEmailFormToAdmin();
     }
 
 }
