@@ -6,14 +6,14 @@
 		@csrf
 
 		@error('email')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
+			<div class="badge">
+				Dieser Benutzer ist nicht registriert.
+			</div>
 		@enderror
 		@error('password')
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
+			<div class="badge">
+				Dieser Benutzer ist nicht registriert.
+			</div>
 		@enderror
 
 		@if (session('message'))

@@ -24,3 +24,19 @@ $('#19').change(function() {
     $('#field-20,#field-21').slideUp()
   }
 });
+
+$('#22').change(function() {
+  if ($(this).val() == '33') {
+    $('#field-23').slideDown()
+  } else{
+    $('#field-23').slideUp()
+  }
+});
+
+$('#24').change(function() {
+  if ($(this).val() == '46') {
+    $('#field-25').slideDown()
+  } else{
+    $('#field-25').slideUp()
+  }
+});
