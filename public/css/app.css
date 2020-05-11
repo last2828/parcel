@@ -407,7 +407,7 @@
 }
 
 .step .checkbox input {
-  display: none;
+  opacity: 0;
 }
 
 .step .checkbox input:checked ~ label:before {
