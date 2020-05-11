@@ -58,9 +58,7 @@ class FormController extends Controller
 
     public function store(FormValidator $request, $id)
     {
-        $request = $request->except(['_token', 'checkbox']);
         Form::saveFormFields($request);
-
 //        $form->saveFormFields(new Form($request));
 
         if($id == 6){
