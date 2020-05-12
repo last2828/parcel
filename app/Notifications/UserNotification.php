@@ -40,6 +40,8 @@ class UserNotification extends Notification
      */
     public function toMail($user)
     {
+        $user = $user->with('form.field.option')->first();
+
         return (new MailMessage)
             ->from('info@parcel.one', 'PARCEL.ONE-Team')
             ->subject("Ihre Registrierung bei PARCEL.ONE (Kunden-Nr.: $user->id )")

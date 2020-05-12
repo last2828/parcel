@@ -86,7 +86,11 @@
                                   {{$field->field->first()['name']}}
                                 </div>
                                 <div class="text" style="background-color: #ffffff;text-align: left;padding: 10px;font-size: 16px;color: #737373;">
-                                  {{$field['value']}}
+                                  @if($field->field->first()['type'] == 'select')
+                                    {{$field->field->first()->option->first()['name']}}
+                                  @else
+                                    {{$field['value']}}
+                                  @endif
                                 </div>
                               </div>
                             </div>

@@ -2,6 +2,7 @@
 
 
 @section('content')
+@dd($user['form'])
 <!DOCTYPE html>
     <!--[if IE]><div class="ie-browser"><![endif]-->
     <table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; width: 100%;" width="100%">
@@ -85,8 +86,12 @@
                                 <div class="field" style="background-color: #3e4c69;text-align: left;color: #ffffff;padding: 10px;font-size: 16px;">
                                   {{$field->field->first()['name']}}
                                 </div>
-                                <div class="text" style="background-color: #ffffff;text-align: left;padding: 10px;font-size: 16px;color: #737373;">
-                                  {{$field['value']}}
+                                <div class="text">
+                                  @if($field->field->first()['type'] == 'select')
+                                    {{$field->field->first()->option->first()['name']}}
+                                  @else
+                                    {{$field['value']}}
+                                  @endif
                                 </div>
                               </div>
                             </div>
