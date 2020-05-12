@@ -46,7 +46,7 @@
               <label for="checkbox"></label>
             </div>
             <label class="label" for="checkbox">
-              Hiermit beauftrage ich die PARCEL.ONE GmbH für die Abwicklung des Vertrages. Ich stimme den Konditionen und den Richtlinien des Angebotes zu. Ich habe die aktuell gültigen <b>AGB</b> der PARCEL.ONE GmbH gelesen, verstanden und stimme diesen zu.
+              Hiermit beauftrage ich die PARCEL.ONE GmbH für die Abwicklung des Vertrages. Ich stimme den Konditionen und den Richtlinien des Angebotes zu. Ich habe die aktuell gültigen <b><a href="https://parcel.one/wp-content/uploads/2020/03/P1-Versandbedingungen-AGB.pdf">AGB</a></b> der PARCEL.ONE GmbH gelesen, verstanden und stimme diesen zu.
             </label>
           </div>
         </div>

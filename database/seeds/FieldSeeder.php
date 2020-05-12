@@ -151,22 +151,22 @@ class FieldSeeder extends Seeder
             ],
             [
                 'id' => 19,
-                'name' => 'PARCEL Volume',
+                'name' => 'PARCEL Volume *',
                 'type' => 'select',
-                'required' => false,
+                'required' => true,
                 'group_id' => 5
             ],
             [
                 'id' => 20,
                 'name' => 'vein',
-                'name' => 'Veinbarte Mindestmenge in Stück/Monat',
+                'name' => 'Veinbarte Mindestmenge in Stück/Monat *',
                 'type' => 'number',
                 'required' => false,
                 'group_id' => 5
             ],
             [
                 'id' => 21,
-                'name' => 'Vereinbarter Mindermengenzuschlag in Euro/Monat',
+                'name' => 'Vereinbarter Mindermengenzuschlag in Euro/Monat *',
                 'type' => 'number',
                 'required' => false,
                 'group_id' => 5
@@ -219,21 +219,21 @@ class FieldSeeder extends Seeder
             ],
             [
                 'id' => 28,
-                'name' => 'Einzelplatz oder Mehrplatz',
+                'name' => 'Einzelplatz oder Mehrplatz *',
                 'type' => 'select',
                 'required' => false,
                 'group_id' => 7
             ],
             [
                 'id' => 29,
-                'name' => 'Installation an wie vielen Standorten',
+                'name' => 'Installation an wie vielen Standorten *',
                 'type' => 'select',
                 'required' => false,
                 'group_id' => 7
             ],
             [
                 'id' => 30,
-                'name' => 'Installation an wie vielen PCs',
+                'name' => 'Installation an wie vielen PCs *',
                 'type' => 'select',
                 'required' => false,
                 'group_id' => 7

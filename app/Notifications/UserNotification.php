@@ -40,7 +40,10 @@ class UserNotification extends Notification
      */
     public function toMail($user)
     {
-        // dd($user);
+        // dd($user['form']);
+        // foreach ($user['form'] as $field) {
+        //    dd($field->field[0]->option);
+        // }
 
         return (new MailMessage)
             ->from('info@parcel.one', 'PARCEL.ONE-Team')

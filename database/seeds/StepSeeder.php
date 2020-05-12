@@ -23,7 +23,7 @@ class StepSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'name' => 'Produkt'
+                'name' => 'Produktauswahl und Abrechnung'
             ],
             [
                 'id' => 4,
@@ -31,7 +31,7 @@ class StepSeeder extends Seeder
             ],
             [
                 'id' => 5,
-                'name' => 'Zahlung'
+                'name' => 'Basis-Lastschrift-Mandat erteilen'
             ],
             [
                 'id' => 6,

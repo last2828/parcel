@@ -395,6 +395,10 @@
   font-weight: 700;
 }
 
+.step .grey b a {
+  color: #3e4c69;
+}
+
 .step .grey p {
   font-weight: 500;
 }

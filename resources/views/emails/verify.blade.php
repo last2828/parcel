@@ -20,7 +20,7 @@
                           <!--<![endif]-->
                           <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
                             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-                              <a href="https://parcel.one/" target="_blank"><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="{{asset('img/logo.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 195px; display: block;" title="Alternate text" width="195"></a> <!--[if mso]></td></tr></table><![endif]-->
+                              <a href="https://parcel.one/" target="_blank"><img align="center" alt="" border="0" class="center fixedwidth" src="{{asset('img/logo.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 195px; display: block;" title="" width="195"></a> <!--[if mso]></td></tr></table><![endif]-->
                           </div><!--[if (!mso)&(!IE)]><!-->
                         </div><!--<![endif]-->
                       </div>

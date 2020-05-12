@@ -21,7 +21,7 @@
                         <!--<![endif]-->
                         <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
                           <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-                            <a href="https://parcel.one/" target="_blank"><img align="center" alt="Alternate text" border="0" class="center fixedwidth" src="{{asset('img/logo.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 195px; display: block;" title="Alternate text" width="195"></a> <!--[if mso]></td></tr></table><![endif]-->
+                            <a href="https://parcel.one/" target="_blank"><img align="center" alt="" border="0" class="center fixedwidth" src="{{asset('img/logo.png')}}" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 195px; display: block;" title="" width="195"></a> <!--[if mso]></td></tr></table><![endif]-->
                         </div><!--[if (!mso)&(!IE)]><!-->
                       </div><!--<![endif]-->
                     </div>
@@ -81,37 +81,14 @@
                           </div><!--[if mso]></td></tr></table><![endif]-->
                           @foreach ($user['form'] as $field)
                             <div style="font-size:16px;text-align:center;font-family:Arial, Helvetica Neue, Helvetica, sans-serif">
-                              <div class="block">
-                                <div class="field">
+                              <div class="block" style="border: solid 1px #3e4c69;border-radius: 3px;margin-bottom: 20px;">
+                                <div class="field" style="background-color: #3e4c69;text-align: left;color: #ffffff;padding: 10px;font-size: 16px;">
                                   {{$field->field->first()['name']}}
                                 </div>
-                                <div class="text">
+                                <div class="text" style="background-color: #ffffff;text-align: left;padding: 10px;font-size: 16px;color: #737373;">
                                   {{$field['value']}}
                                 </div>
                               </div>
-                              <style>
-                                                        .block {
-                                                            border: solid 1px #3e4c69;
-                                                            border-radius: 3px;
-                                                            margin-bottom: 20px;
-                                                        }
-    
-                                                        .field {
-                                                            background-color: #3e4c69;
-                                                            text-align: left;
-                                                            color: #ffffff;
-                                                            padding: 10px;
-                                                            font-size: 16px;
-                                                        }
-    
-                                                        .text {
-                                                            background-color: #ffffff;
-                                                            text-align: left;
-                                                            padding: 10px;
-                                                            font-size: 16px;
-                                                            color: #737373;
-                                                        }
-                              </style>
                             </div>
                           @endforeach
                         <table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" width="100%">
