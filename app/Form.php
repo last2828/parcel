@@ -20,7 +20,6 @@ class Form extends Model
 
     public static function saveFormFields($request)
     {
-//        dd($request);
         foreach($request->except(['_token', 'checkbox']) as $key => $value) {
             $field_id = explode('-', $key);
             self::create([
