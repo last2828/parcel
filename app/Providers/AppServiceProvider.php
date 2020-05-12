@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Form;
+use App\FormMailer;
+use App\IForm;
+use App\IMailer;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +18,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('IForm', 'Form');
+        $this->app->bind(IForm::class, Form::class);
+        $this->app->bind(IMailer::class, FormMailer::class);
     }
 
     /**

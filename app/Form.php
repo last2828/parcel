@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class Form extends Model
+class Form extends Model implements IForm
 {
     protected $fillable = [
         'value',
@@ -18,10 +18,9 @@ class Form extends Model
         return $this->hasMany(Field::class, 'id', 'field_id');
     }
 
-    public static function saveFormFields($request)
+    public function saveFormFields($data)
     {
-//        dd($request);
-        foreach($request->except(['_token', 'checkbox']) as $key => $value) {
+        foreach($data as $key => $value) {
             $field_id = explode('-', $key);
             self::create([
                 'value' =>  $value,
