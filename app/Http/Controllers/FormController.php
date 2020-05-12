@@ -61,7 +61,7 @@ class FormController extends Controller
         Form::saveFormFields($request);
 //        $form->saveFormFields(new Form($request));
 
-        if($id == 3){
+        if($id == 6){
             $this->sendEmails(new FormMailer);
         }
 
@@ -85,7 +85,7 @@ class FormController extends Controller
 
     public function sendEmails(IMailer $mailer)
     {
-//        $mailer->sendEmailFormToAdmin(Auth::id());
+        $mailer->sendEmailFormToAdmin(Auth::id());
         $mailer->sendEmailFormToUser(Auth::id());
     }
 

@@ -41,7 +41,6 @@ class UserNotification extends Notification
     public function toMail($user)
     {
         $user = $user->with('form.field.option')->first();
-//        dd($user->form->first()->field->first()->option->first()['name']);
 
         return (new MailMessage)
             ->from('info@parcel.one', 'PARCEL.ONE-Team')
