@@ -16,7 +16,7 @@ class FormController extends Controller
     public function index()
     {
         $data = Form::where('user_id', Auth::id())->get('field_id');
-        $step_id = 4;
+        $step_id = 1;
         if ($data) {
             foreach($data as $key => $value){
                 switch ($value['field_id']) {

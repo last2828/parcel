@@ -75,7 +75,7 @@
                           <div style="color:#661600;font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                             <div style="line-height: 1.2; font-size: 12px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #661600; mso-line-height-alt: 14px;">
                               <p style="font-size: 14px; line-height: 1.2; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; word-break: break-word; mso-line-height-alt: 17px; margin: 0;">
-                                <strong>Rechnungsadresse</strong>
+                                {{-- <strong>Rechnungsadresse</strong> --}}
                               </p>
                             </div>
                           </div><!--[if mso]></td></tr></table><![endif]-->
