@@ -2,6 +2,7 @@
 
 
 @section('content')
+@dd($user['form'])
 <!DOCTYPE html>
     <!--[if IE]><div class="ie-browser"><![endif]-->
     <table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFFFFF; width: 100%;" width="100%">
@@ -86,7 +87,11 @@
                                   {{$field->field->first()['name']}}
                                 </div>
                                 <div class="text">
+                                    @if($field['type'] == 'select')
+                                  {{$field['name']}}
+                                    @else
                                   {{$field['value']}}
+                                    @endif
                                 </div>
                               </div>
                               <style>

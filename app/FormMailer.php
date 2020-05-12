@@ -37,6 +37,7 @@ class FormMailer extends Model implements IMailer
         {
             $user = User::findOrFail($id);
             $user->notify(new UserNotification());
+
         }
     }
 }

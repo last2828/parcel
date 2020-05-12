@@ -16,7 +16,7 @@ class FormController extends Controller
     public function index()
     {
         $data = Form::where('user_id', Auth::id())->get('field_id');
-        $step_id = 6;
+        $step_id = 3;
         if ($data) {
             foreach($data as $key => $value){
                 switch ($value['field_id']) {
@@ -61,7 +61,7 @@ class FormController extends Controller
         Form::saveFormFields($request);
 //        $form->saveFormFields(new Form($request));
 
-        if($id == 6){
+        if($id == 3){
             $this->sendEmails(new FormMailer);
         }
 
@@ -85,7 +85,7 @@ class FormController extends Controller
 
     public function sendEmails(IMailer $mailer)
     {
-        $mailer->sendEmailFormToAdmin(Auth::id());
+//        $mailer->sendEmailFormToAdmin(Auth::id());
         $mailer->sendEmailFormToUser(Auth::id());
     }
 
