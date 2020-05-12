@@ -14,19 +14,12 @@ class FormMailer extends Model implements IMailer
     {
         $email_recipients = Admin::where('id', 1)->first()['email_recipient'];
 
-        if(isset($email_recipients))
-        {
-            $data = json_decode($email_recipients, true);
-            $emails = [];
-            foreach($data as $key => $value){
-                array_push($emails, $value['value']);
-            }
+        if(isset($email_recipients)){
 
             $user = User::findOrFail($id);
-
-            Mail::to($emails)->send(new AdminMail($user));
-
+            Mail::to($email_recipients)->send(new AdminMail($user));
         }
+
     }
 
     public function sendEmailFormToUser($id)
