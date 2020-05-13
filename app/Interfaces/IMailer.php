@@ -4,7 +4,7 @@ namespace App;
 
 interface IMailer{
 
-    public function sendEmailFormToAdmin($id);
-    public function sendEmailFormToUser($id);
+    public function sendEmailFormToAdmin();
+    public function sendEmailFormToUser();
 
 }

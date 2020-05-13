@@ -7,7 +7,12 @@ use App\FormMailer;
 use App\IMailer;
 use App\IForm;
 use App\Http\Requests\FormValidator;
+use App\Jobs\SendMail;
+use App\Mail\AdminMail;
+use App\Mail\UserMail;
+use App\Step;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
@@ -21,16 +26,13 @@ class FormController extends Controller
         $form->saveFormFields($request->except(['_token', 'checkbox']));
 
         if($id == 6){
-            $this->sendEmails(new FormMailer);
+            SendMail::dispatch();
+//           $m = new FormMailer;
+//           $m->sendEmailFormToAdmin();
+//           $m->sendEmailFormToUser();
         }
 
         return redirect()->route('step');
-    }
-
-    public function sendEmails(IMailer $mailer)
-    {
-        $mailer->sendEmailFormToAdmin(Auth::id());
-        $mailer->sendEmailFormToUser(Auth::id());
     }
 
 }

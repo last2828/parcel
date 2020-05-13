@@ -6,8 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
-class AdminMail extends Mailable
+class UserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,10 +33,9 @@ class AdminMail extends Mailable
     public function build()
     {
         $user = $this->user;
-
         return $this
                 ->subject("Neue Kunden-Registrierung (Kunden-Nr.: $user->id)")
                 ->from('info@parcel.io', 'PARCEL.ONE-Team')
-                ->view('emails.admin', compact('user'));
+                ->view('emails.user', compact('user'));
     }
 }

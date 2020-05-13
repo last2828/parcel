@@ -3,16 +3,18 @@
 namespace App;
 
 use App\Mail\AdminMail;
-use App\Notifications\UserNotification;
+use App\Mail\UserMail;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class FormMailer extends Model implements IMailer
 {
 
-    public function sendEmailFormToAdmin($id)
+    public function sendEmailFormToAdmin()
     {
         $email_recipients = Admin::where('id', 1)->first()['email_recipient'];
+
 
         if(isset($email_recipients))
         {
@@ -22,22 +24,17 @@ class FormMailer extends Model implements IMailer
                 array_push($emails, $value['value']);
             }
 
-            $user = User::findOrFail($id);
-
-            Mail::to($emails)->send(new AdminMail($user));
-
+            Mail::to($emails)->send(new AdminMail(Auth::user()));
         }
     }
 
-    public function sendEmailFormToUser($id)
+    public function sendEmailFormToUser()
     {
         $customer_notification = Admin::where('id', 1)->first();
 
         if($customer_notification['customer_notification'] == true)
         {
-            $user = User::findOrFail($id);
-            $user->notify(new UserNotification());
-
+            Mail::to('last2828@gmail.com')->send(new UserMail(Auth::user()));
         }
     }
 }
