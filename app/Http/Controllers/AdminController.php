@@ -39,8 +39,10 @@ class AdminController extends Controller
             foreach($data as $key => $value){
                 array_push($emails, $value['value']);
             }
+
             $fields['email_recipient'] = $emails;
         }
+
 
         $test = new FormMailer();
         $r = $test->sendEmailFormToAdmin(Auth::id());

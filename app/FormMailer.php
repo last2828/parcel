@@ -13,6 +13,7 @@ class FormMailer extends Model implements IMailer
     public function sendEmailFormToAdmin($id)
     {
         $email_recipients = Admin::where('id', 1)->first()['email_recipient'];
+        dd($email_recipients);
 
         if(isset($email_recipients)){
 
