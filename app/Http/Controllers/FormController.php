@@ -26,7 +26,7 @@ class FormController extends Controller
         $form->saveFormFields($request->except(['_token', 'checkbox']));
 
         if($id == 6){
-            SendMail::dispatch();
+            SendMail::dispatch()->delay(now()->addMinutes(10));
         }
 
         return redirect()->route('step');
