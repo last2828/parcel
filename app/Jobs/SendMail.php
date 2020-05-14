@@ -3,7 +3,11 @@
 namespace App\Jobs;
 
 use App\Admin;
+use App\FormMailer;
+use App\IMailer;
 use App\Mail\UserMail;
+use App\Notifications\UserNotification;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -21,9 +25,12 @@ class SendMail implements ShouldQueue
      *
      * @return void
      */
+
+    protected $user;
+
     public function __construct()
     {
-
+        $this->user = Auth::user();
     }
 
     /**
@@ -31,13 +38,9 @@ class SendMail implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(IMailer $mailer)
     {
-        $customer_notification = Admin::where('id', 1)->first();
-
-        if($customer_notification['customer_notification'] == true)
-        {
-            Mail::to('last2828@gmail.com')->send(new UserMail(Auth::user()));
-        }
+        $mailer->sendEmailFormToAdmin($this->user);
+        $mailer->sendEmailFormToUser($this->user);
     }
 }

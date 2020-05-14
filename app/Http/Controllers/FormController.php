@@ -27,9 +27,6 @@ class FormController extends Controller
 
         if($id == 6){
             SendMail::dispatch();
-//           $m = new FormMailer;
-//           $m->sendEmailFormToAdmin();
-//           $m->sendEmailFormToUser();
         }
 
         return redirect()->route('step');
