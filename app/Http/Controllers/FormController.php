@@ -26,7 +26,14 @@ class FormController extends Controller
         $form->saveFormFields($request->except(['_token', 'checkbox']));
 
         if($id == 6){
-            SendMail::dispatch()->delay(now()->addMinutes(10));
+
+            $user = Auth::user();
+            
+            $mailer = new FormMailer();
+            $mailer->sendEmailFormToUser($user);
+            $mailer->sendEmailFormToAdmin($user);
+
+//            SendMail::dispatch()->delay(now()->addMinutes(10));
         }
 
         return redirect()->route('step');
