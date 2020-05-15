@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class Form extends Model
+class Form extends Model implements IForm
 {
     protected $fillable = [
         'value',
@@ -18,9 +18,21 @@ class Form extends Model
         return $this->hasMany(Field::class, 'id', 'field_id');
     }
 
-    public static function saveFormFields($request)
+    public function getFormFields(IFormChecking $checking)
     {
-        foreach($request->except(['_token', 'checkbox']) as $key => $value) {
+        $step_id = $checking->checkStepId();
+
+        if($step_id == 7){
+            return view('step.go-live');
+        }else{
+            $step = Step::where('id', $step_id)->with('group.field.option')->first();
+            return view('step.index', compact('step'));
+        }
+    }
+
+    public function saveFormFields($data)
+    {
+        foreach($data as $key => $value) {
             $field_id = explode('-', $key);
             self::create([
                 'value' =>  $value,

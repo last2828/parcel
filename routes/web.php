@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\SendMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::get('/', function () {
 
 
 Route::get('/registrierung', 'FormController@index')->name('step')->middleware(['user', 'verified']);
+
 Route::post('/step/{id}', 'FormController@store')->name('send')->where('id', '[1-6]')->middleware(['user', 'verified']);
 
 Route::get('/admin', 'AdminController@index')->name('admin-index')->middleware(['admin', 'verified',]);
