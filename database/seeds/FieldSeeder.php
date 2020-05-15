@@ -166,7 +166,7 @@ class FieldSeeder extends Seeder
             ],
             [
                 'id' => 21,
-                'name' => 'Vereinbarter Mindermengenzuschlag in Euro/Monat',
+                'name' => 'Vereinbarter Mindermengenzuschlag in Euro/Monat *',
                 'type' => 'number',
                 'required' => false,
                 'group_id' => 5
