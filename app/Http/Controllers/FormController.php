@@ -28,7 +28,7 @@ class FormController extends Controller
         if($id == 6){
 
             $user = Auth::user();
-            
+
             $mailer = new FormMailer();
             $mailer->sendEmailFormToUser($user);
             $mailer->sendEmailFormToAdmin($user);
