@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Interfaces\IForm;
+use App\IForm;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
