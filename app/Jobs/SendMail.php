@@ -4,7 +4,7 @@ namespace App\Jobs;
 
 use App\Admin;
 use App\FormMailer;
-use App\IMailer;
+use App\Interfaces\IMailer;
 use App\Mail\UserMail;
 use App\Notifications\UserNotification;
 use App\User;

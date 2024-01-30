@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Interfaces;
 
 interface IForm{
     public function getFormFields(IFormChecking $checking);

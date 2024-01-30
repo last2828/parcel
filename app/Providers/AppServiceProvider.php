@@ -5,9 +5,9 @@ namespace App\Providers;
 use App\Form;
 use App\FormChecking;
 use App\FormMailer;
-use App\IForm;
-use App\IFormChecking;
-use App\IMailer;
+use App\Interfaces\IForm;
+use App\Interfaces\IFormChecking;
+use App\Interfaces\IMailer;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 

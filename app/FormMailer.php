@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Interfaces\IMailer;
 use App\Mail\AdminMail;
 use App\Mail\UserMail;
 use Illuminate\Database\Eloquent\Model;

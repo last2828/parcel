@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\FormChecking;
 use App\FormMailer;
-use App\IMailer;
-use App\IForm;
+use App\Interfaces\IMailer;
+use App\Interfaces\IForm;
 use App\Http\Requests\FormValidator;
 use App\Jobs\SendMail;
 use App\Mail\AdminMail;
@@ -28,7 +28,7 @@ class FormController extends Controller
         if($id == 6){
 
             $user = Auth::user();
-            
+
             $mailer = new FormMailer();
             $mailer->sendEmailFormToUser($user);
             $mailer->sendEmailFormToAdmin($user);
